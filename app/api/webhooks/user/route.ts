@@ -14,7 +14,6 @@ export async function POST(req: Request) {
       clerkId: id,
       email,
       username,
-      phoneNumber: '',
     },
   });
 
