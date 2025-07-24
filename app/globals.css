@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --color-main: #0f1c24;
+  --color-side: #1c2d35;
+  --color-gray: #8097a1;
+  --color-hover-50: rgba(46, 73, 86, 0.8);
+  --color-hover-100: #2e4956;
+  --color-green-50: rgb(0 255 115 / 0.5);
+  --color-green-100: #03aa82;
+}
+
+@layer components {
+  .main_container {
+    @apply /* h-screen */
+    min-h-screen h-full lg:flex lg:flex-row bg-pink-200;
+  }
+
+  .header {
+    @apply fixed top-0 left-0 w-full h-28 z-10 bg-main text-white
+    flex flex-col items-stretch justify-between gap-2 p-4
+    /* lg:w-[calc(100%-7rem)] */
+    lg:w-[calc(100%-5rem)]
+    lg:left-20
+    /* lg:w-full; */;
+  }
+
+  .header_container {
+    @apply flex items-center justify-between w-full md:gap-2;
+  }
+
+  .header_actions {
+    @apply flex items-center gap-4;
+  }
+
+  .searchbar {
+    @apply w-full flex-1 bg-hover-100 text-white rounded-3xl py-1.5 px-4
+    flex justify-start gap-2;
+  }
+
+  .bottombar {
+    @apply fixed bottom-0 left-0 w-full h-20 z-10 bg-white text-black flex
+    lg:hidden lg:w-fit lg:h-full;
+  }
+
+  .bottombar_container {
+    @apply flex items-center justify-between w-full p-4 bg-main
+    /* border-t border-hover-100  */
+    lg:flex-col;
+  }
+
+  .leftbar {
+    @apply hidden z-10 lg:block lg:fixed lg:w-20 lg:h-full lg:pt-0;
+  }
+
+  .leftbar_container {
+    @apply flex items-center justify-between gap-2 w-full p-4 bg-side
+    border-e border-hover-100
+    lg:flex-col lg:h-full;
+  }
+
+  .chats {
+    @apply flex flex-1 flex-col items-stretch justify-start w-full gap-4
+    min-h-0
+    overflow-y-auto
+    pt-28 pb-20
+    md:pt-20 md:pb-0
+    lg:ps-26 lg:pt-20;
+  }
+
+  .chat {
+    @apply flex items-center bg-main gap-4 p-2 hover:bg-hover-50;
+  }
+}
+
+body {
+  --sb-track-color: #232e33;
+  --sb-thumb-color: #6baf8d;
+  --sb-size: 15px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 12px;
+  border: 3px solid #232e33;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+/*
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #20556b; /* Or a light gray 
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #888; /* scrollbar color 
+  border-radius: 12px;
+  border: 0.5px solid transparent; /* space between thumb and track 
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+*/
